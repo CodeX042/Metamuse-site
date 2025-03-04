@@ -1,8 +1,14 @@
 /* eslint-disable unicorn/filename-case */
+import type { FC } from "react";
+
 import { useEffect, useRef } from "react";
 
-function ClientCanvas({ socket }) {
-	const imgRef = useRef(null);
+interface ClientCanvasProps {
+	socket: any;
+}
+
+const ClientCanvas: FC<ClientCanvasProps> = ({ socket }) => {
+	const imgRef: any = useRef(null);
 	//   useEffect(() => {
 	//     socket.on("message", (data) => {
 	//       toast.info(data.message);
@@ -15,7 +21,7 @@ function ClientCanvas({ socket }) {
 	//     });
 	//   }, []);
 	useEffect(() => {
-		socket.on("canvasImage", (data) => {
+		socket.on("canvasImage", (data: any) => {
 			imgRef.current.src = data;
 		});
 	}, []);
@@ -37,6 +43,6 @@ function ClientCanvas({ socket }) {
 			</div>
 		</div>
 	);
-}
+};
 
 export default ClientCanvas;
