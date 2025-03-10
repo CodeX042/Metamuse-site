@@ -1,7 +1,7 @@
 # MetaMuse
 
 ## Overview
-This project is a **collaborative drawing app** frontend built with React, designed to allow multiple users to draw together in real time. The application connects with a backend using WebSockets to synchronize drawing actions among users.
+Metamuse is a decentralized platform that enables artists to collaborate on artwork, mint NFTs, and showcase them in a marketplace and get fractional distribution of ownwership based on contributions. Built on the SUI blockchain, it offers features like collaborative art creation, NFT minting, a decentralized marketplace, a royalty system for artists, Web3 wallet authentication,  ensuring transparency, security, and fair value for digital art.
 
 ## Features
 - **Real-time drawing collaboration**
