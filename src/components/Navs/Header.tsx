@@ -1,5 +1,4 @@
-import { ConnectButton, useWallet } from "@suiet/wallet-kit";
-/* eslint-disable no-alert */
+import { ConnectButton } from "@suiet/wallet-kit";
 import { Link } from "@tanstack/react-router";
 import { Menu, Search } from "lucide-react";
 import React, { useEffect, useState } from "react";
@@ -51,23 +50,23 @@ const Header: React.FC = () => {
 		checkWalletConnection();
 	}, [dispatch, web3]);
 
-	const connectWallet = async () => {
-		if (web3) {
-			try {
-				const accounts = await web3.eth.requestAccounts();
-				if (accounts.length > 0) {
-					setAddress(accounts[0]);
-					dispatch(setConnectedWallet(accounts[0]));
-				}
-			}
-			catch (error) {
-				console.error("Wallet connection failed:", error);
-			}
-		}
-		else {
-			alert("MetaMask is not installed. Please install it to connect your wallet.");
-		}
-	};
+	// const connectWallet = async () => {
+	// 	if (web3) {
+	// 		try {
+	// 			const accounts = await web3.eth.requestAccounts();
+	// 			if (accounts.length > 0) {
+	// 				setAddress(accounts[0]);
+	// 				dispatch(setConnectedWallet(accounts[0]));
+	// 			}
+	// 		}
+	// 		catch (error) {
+	// 			console.error("Wallet connection failed:", error);
+	// 		}
+	// 	}
+	// 	else {
+	// 		alert("MetaMask is not installed. Please install it to connect your wallet.");
+	// 	}
+	// };
 
 	const disconnectWallet = () => {
 		setAddress(null);
