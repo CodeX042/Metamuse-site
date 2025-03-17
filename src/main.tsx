@@ -1,10 +1,12 @@
+import { WalletProvider } from "@suiet/wallet-kit";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { createRouter, RouterProvider } from "@tanstack/react-router";
 import ReactDOM from "react-dom/client";
 import { Provider } from "react-redux";
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
+import "@suiet/wallet-kit/style.css";
 
 import store from "./redux/store";
 import { routeTree } from "./routeTree.gen";
@@ -29,11 +31,13 @@ if (!rootElement.innerHTML) {
 	root.render(
 		<Provider store={store}>
 			<QueryClientProvider client={queryClient}>
-				<RouterProvider router={router} />
-				{import.meta.env.DEV && (
-					<ReactQueryDevtools initialIsOpen={false} />
-				)}
-				<ToastContainer />
+				<WalletProvider>
+					<RouterProvider router={router} />
+					{import.meta.env.DEV && (
+						<ReactQueryDevtools initialIsOpen={false} />
+					)}
+					<ToastContainer />
+				</WalletProvider>
 			</QueryClientProvider>
 		</Provider>,
 	);

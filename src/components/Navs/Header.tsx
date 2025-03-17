@@ -1,4 +1,4 @@
-/* eslint-disable unicorn/filename-case */
+import { ConnectButton, useWallet } from "@suiet/wallet-kit";
 /* eslint-disable no-alert */
 import { Link } from "@tanstack/react-router";
 import { Menu, Search } from "lucide-react";
@@ -113,12 +113,14 @@ const Header: React.FC = () => {
 							</div>
 						)
 					: (
-							<button
-								onClick={connectWallet}
-								className="ml-4 rounded-full border border-white px-4 py-2 text-white"
-							>
-								Connect Wallet
-							</button>
+				// <button
+				// 	onClick={connectWallet}
+				// 	className="ml-4 rounded-full border border-white px-4 py-2 text-white"
+				// >
+				// 	Connect Wallet
+				// </button>
+
+							<ConnectButton label="Connect Wallet" className="connect-button" />
 						)}
 
 				{/* Dropdown Menu */}

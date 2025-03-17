@@ -67,9 +67,28 @@
 	}
 }
 
-.auth-bg{
+.auth-bg {
 	background-image: url("/asset/auth-bg.svg");
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
+}
+.connect-button {
+	margin-left: 4px !important;
+	color: white !important;
+	border: 1px solid white !important;
+	padding: 8px 16px !important;
+	background-color: transparent !important;
+}
+.wkit-connected-button {
+	color: white !important;
+	padding: 8px 16px !important;
+	background-color: transparent !important;
+}
+.wkit-connected-button__balance,
+.wkit-address-select__address {
+	color: white !important;
+}
+.wkit-disconnect-button__container {
+	z-index: 10000 !important;
 }
