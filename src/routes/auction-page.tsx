@@ -1,23 +1,24 @@
-import Header from '@/components/Navs/Header';
-import AuctionCard from '@/components/cards/AuctionCard';
-import { createFileRoute } from '@tanstack/react-router'
-import { ChainId, ThirdwebProvider } from '@thirdweb-dev/react'
+import { createFileRoute } from "@tanstack/react-router";
+import { ChainId, ThirdwebProvider } from "@thirdweb-dev/react";
 
-export const Route = createFileRoute('/auction-page')({
-  component: () => {
+import AuctionCard from "@/components/cards/AuctionCard";
+import Header from "@/components/Navs/Header";
+import useCheckWalletConnection from "@/hooks/useCheckWalletConnection";
 
-  
+export const Route = createFileRoute("/auction-page")({
+	component: () => {
+		useCheckWalletConnection();
 
+		return (
+			<div className="relative">
+				<ThirdwebProvider activeChain={ChainId.Arbitrum}>
+					<Header />
+				</ThirdwebProvider>
+				<div className="flex min-h-screen items-center justify-center bg-gray-900 p-8">
 
-    return (
-    <div className="relative"><ThirdwebProvider activeChain={ChainId.Arbitrum}>
-        <Header />
-      </ThirdwebProvider>
-    <div className="p-8 bg-gray-900 min-h-screen flex justify-center items-center">
-      
-      <AuctionCard/>
-        </div>
-      </div>
-    )
-  },
-})
+					<AuctionCard />
+				</div>
+			</div>
+		);
+	},
+});
